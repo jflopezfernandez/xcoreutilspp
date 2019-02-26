@@ -1,5 +1,5 @@
 
-/** cat - Concatenate files and print on the standard output.
+/** xcoreutils.h
  *
  *  Copyright (C) 1988-2019 Free Software Foundation, Inc.
  * 
@@ -14,30 +14,27 @@
  *  You should have received a copy of the GNU General Public License
  *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- *  Originally written by Torbjorn Granlund, advised by Dr. Richard Stallman.
- *  Rewritten in C++ by Jose Fernando Lopez Fernandez.
+ *  Originally written by Jose Fernando Lopez Fernandez <jflopezfernandez@gmail.com>.
  * 
  */
 
-#include "xcoreutils.h"
+#ifndef XCOREUTILS_INCLUDES_XCOREUTILS_H_
+#define XCOREUTILS_INCLUDES_XCOREUTILS_H_
 
-namespace Opts = boost::program_options;
+#include <cstdio>
+#include <cstdlib>
+#include <cstring>
+#include <cmath>
 
-template <typename T, size_t N>
-struct Array
-{
-    size_t size = N;
-    T data[N];
-};
+#include <fstream>
+#include <iostream>
+#include <sstream>
+#include <string>
+#include <string_view>
+#include <vector>
 
-int main(int argc, char *argv[])
-{
-    Array<int, 5> arr = { 1, 2, 3, 4, 5 };
+#include <boost/program_options.hpp>
 
-    for (auto i = 0; i < arr.size; i++)
-    {
-        std::cout << arr.data[i] << IO::endl;
-    }
+#include "io.h"
 
-    return EXIT_SUCCESS;
-}
+#endif // XCOREUTILS_INCLUDES_XCOREUTILS_H_

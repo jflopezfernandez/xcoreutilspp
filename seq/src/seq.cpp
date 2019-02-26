@@ -19,44 +19,7 @@
  * 
  */
 
-#include <cstdio>
-#include <cstdlib>
-#include <cstring>
-#include <cmath>
-
-#include <iomanip>
-#include <iostream>
-#include <string>
-#include <string_view>
-#include <vector>
-
-#include <boost/program_options.hpp>
-
-namespace IO
-{
-    /** @fn IO::endl
-     *
-     *  @brief The standard library's std::endl does two things: it outputs a
-     *  new line and then it calls std::fflush(), flushing the output buffer.
-     *  This is not always ideal, so this function replaces the std::endl
-     *  function with IO::endl, which is similar in every way, except it does
-     *  not call std::fflush().
-     *
-     *  Credit for this function goes to Dietmar Kuhl, who wrote about the
-     *  common misuse of std::endl on his website, linked below.
-     *
-     *  @author Dietmar Kuhl
-     *  @date January 14, 2012
-     *  @link https://kuhllib.com/2012/01/14/stop-excessive-use-of-stdendl/
-     *
-     */
-    template <typename CharT, typename T = std::char_traits<CharT>>
-    std::basic_ostream<CharT, T>&
-    endl(std::basic_ostream<CharT, T>& outputStream)
-    {
-        return outputStream << outputStream.widen('\n');
-    }
-} // namespace IO
+#include "xcoreutils.h"
 
 namespace Program
 {
