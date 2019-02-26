@@ -31,10 +31,49 @@
 
 #include <boost/program_options.hpp>
 
+namespace IO
+{
+    /** @fn IO::endl
+     *
+     *  @brief The standard library's std::endl does two things: it outputs a
+     *  new line and then it calls std::fflush(), flushing the output buffer.
+     *  This is not always ideal, so this function replaces the std::endl
+     *  function with IO::endl, which is similar in every way, except it does
+     *  not call std::fflush().
+     *
+     *  Credit for this function goes to Dietmar Kuhl, who wrote about the
+     *  common misuse of std::endl on his website, linked below.
+     *
+     *  @author Dietmar Kuhl
+     *  @date January 14, 2012
+     *  @link https://kuhllib.com/2012/01/14/stop-excessive-use-of-stdendl/
+     *
+     */
+    template <typename CharT, typename T = std::char_traits<CharT>>
+    std::basic_ostream<CharT, T>&
+    endl(std::basic_ostream<CharT, T>& outputStream)
+    {
+        return outputStream << outputStream.widen('\n');
+    }
+} // namespace
+
+namespace Opts = boost::program_options;
+
+template <typename T, size_t N>
+struct Array
+{
+    size_t size = N;
+    T data[N];
+};
 
 int main(int argc, char *argv[])
 {
-    std::cout << "[cat executed...]" << std::endl;
+    Array<int, 5> arr = { 1, 2, 3, 4, 5 };
 
-    return 0;
+    for (auto i = 0; i < arr.size; i++)
+    {
+        std::cout << arr.data[i] << IO::endl;
+    }
+
+    return EXIT_SUCCESS;
 }
