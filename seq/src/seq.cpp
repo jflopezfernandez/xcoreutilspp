@@ -1,6 +1,22 @@
 
-/**
+/** seq - Print sequence of numbers to standard output.
  *
+ *  Copyright (C) 1988-2019 Free Software Foundation, Inc.
+ * 
+ *  This program is free software: you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation, either version 3 of the License, or
+ *  (at your option) any later version.
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU General Public License for more details.
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ *
+ *  Originally written by Ulrich Drepper. Rewritten in C++ by
+ *  Jose Fernando Lopez Fernandez.
+ * 
  */
 
 #include <cstdio>
@@ -54,7 +70,11 @@ namespace Program
         std::cout << Program::Name << " (Version " << Program::Version << ")" << IO::endl;
         std::cout << "This program is a C++ rewrite of the original GNU coreutils" << IO::endl;
         std::cout << "seq program written by Ulrich Drepper, by " << IO::endl;
-        std::cout << Program::AuthorName << " <" << Program::AuthorEmail << ">" << IO::endl;
+        std::cout << Program::AuthorName << " <" << Program::AuthorEmail << ">\n" << IO::endl;
+        std::cout << "This program comes with ABSOLUTELY NO WARRANTY; for details " << IO::endl;
+        std::cout << "type `show w'. This is free software, and you are welcome to " << IO::endl;
+        std::cout << "redistribute it under certain conditions; type `show c' " << IO::endl;
+        std::cout << "for details." << IO::endl;
     }
 } // namespace Program
 
