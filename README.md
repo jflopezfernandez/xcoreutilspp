@@ -7,6 +7,16 @@ This is a top-to-bottom rewrite of the GNU coreutils library of Unix utilities. 
 
 Instructions for building the packages. Note that the instructions for building on Windows presuppose vcpkg. Vcpkg is not required in and of itself, but configuration is much less straightforward and is not covered here.
 
+## Requirements
+
+ 1. CMake Version 3.6 or above
+ 2. C++ Compiler
+ 3. Boost (Program Options)
+ 4. Make program (Visual Studio is fine for Windows builds)
+ 5. vcpkg (Windows only)
+
+> Linux users: While you do not need vcpkg, you must have installed the other requirements and they must be in your path. If you used a package manager, usually they are installed directly into your `/bin/` or `/usr/bin` directories, which should be in your path.
+
 ## Windows
 
 Note that I'm specifying the `host=x64` option; without it, Visual Studio defaults to using the x86 host toolchain.
